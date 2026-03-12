@@ -2,7 +2,7 @@ name: Deploy mdBook
 
 on:
   push:
-    branches: [ main ]
+    branches: [ add_mdbook_linkcheck_to_ci_test_broken_link ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -61,7 +61,7 @@ jobs:
           path: ./book/html
 
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/add_mdbook_linkcheck_to_ci_test_broken_link' && github.repository_owner == 'tianocore'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
